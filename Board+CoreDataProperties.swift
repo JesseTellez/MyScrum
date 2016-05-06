@@ -19,8 +19,8 @@ extension Board {
     @NSManaged var totalPoints: NSNumber?
     @NSManaged var currentPoints: NSNumber?
     @NSManaged var progress: NSNumber?
-    @NSManaged var goals: NSSet?
-    @NSManaged var reminders: NSSet?
-    @NSManaged var tasks: NSSet?
+    @NSManaged var goals: Goal?
+    @NSManaged var reminders: Reminder?
+    @NSManaged var tasks: Task?
 
 }

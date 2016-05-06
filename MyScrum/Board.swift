@@ -19,28 +19,17 @@ class Board: NSManagedObject {
         super.awakeFromInsert()
         
     }
-    
-    func formatprogress(currentPoints: Int, maxPoints: Int) -> Int {
-        
-        if currentPoints != 0 {
-            self.totalPoints = currentPoints / maxPoints
-            return self.totalPoints as! Int
-            
-        } else {
-            self.totalPoints = 0
-            return self.totalPoints as! Int
-        }
-    }
-    
-    func updateTotalPoints(index: NSIndexPath) {
-        
-        
-        if let tasks = self.tasks {
-            for task in tasks {
-                
-            }
-        }
-        
-    }
 
+    func updateTotalPercentage() {
+        
+        var newPercentage: Int32!
+        
+        if let currentInt = self.currentPoints?.intValue, intTotal = self.totalPoints?.intValue {
+            newPercentage = currentInt/intTotal
+            
+            self.progress = NSNumber(int: newPercentage)
+        }
+        self.progress = 0
+    }
+    
 }

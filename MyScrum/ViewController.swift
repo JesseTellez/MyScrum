@@ -20,6 +20,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var fetchedResultsCont:NSFetchedResultsController!
     
+    var currentGoal: Goal!
+    
     
 
     override func viewDidLoad()
@@ -29,6 +31,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         attemptFetch()
+        
+       // generateTestData()
     }
     
     override func viewDidAppear(animated: Bool)
@@ -168,20 +172,32 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+    func generateTestTasks() {
+        
+        generateTestData()
+        
+    }
     
     func generateTestData() {
         
+        currentGoal.details = "My Current Goal is to get this working"
         let board = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
         board.title = "Dancing"
+        board.progress = NSNumber(int: 47)
+        board.goals = currentGoal
+    
         
         let board2 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
         board2.title = "Game Developement"
+        board2.progress = NSNumber(int: 89)
         
         let board3 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
         board3.title = "3D Animation"
+        board3.progress = NSNumber(int: 15)
         
         let board4 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
         board4.title = "Programming"
+        board3.progress = NSNumber(int: 29)
         
     }
 
