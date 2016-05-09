@@ -16,7 +16,12 @@ class boardCell: UICollectionViewCell {
     
     func configCell(board: Board) {
         boardTitleLabel.text = board.title
-        progressPercentLabel.text = "\(board.progress)%"
+        
+        if let percentage = board.progress {
+            progressPercentLabel.text =  "\(percentage)%"
+        }
+        
+        goalLabel.text =  board.currentGoal
         //TODO: regen file for goals and board
 //        if let goalExist = board.goals as? Goal {
 //            

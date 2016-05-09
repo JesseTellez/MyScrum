@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1854EF861CDFF3FC00FADB46 /* CustomSegmentCntrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1854EF851CDFF3FC00FADB46 /* CustomSegmentCntrl.swift */; };
 		18E71B2B1CCEB0B500DB94ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B2A1CCEB0B500DB94ED /* AppDelegate.swift */; };
 		18E71B2D1CCEB0B500DB94ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B2C1CCEB0B500DB94ED /* ViewController.swift */; };
 		18E71B301CCEB0B500DB94ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18E71B2E1CCEB0B500DB94ED /* Main.storyboard */; };
@@ -16,8 +17,6 @@
 		18E71B471CCECB3400DB94ED /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B3F1CCECB3400DB94ED /* Reminder+CoreDataProperties.swift */; };
 		18E71B481CCECB3400DB94ED /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B401CCECB3400DB94ED /* Reminder.swift */; };
 		18E71B4A1CCECB3400DB94ED /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B421CCECB3400DB94ED /* Board.swift */; };
-		18E71B4D1CCECB3400DB94ED /* Goal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B451CCECB3400DB94ED /* Goal+CoreDataProperties.swift */; };
-		18E71B4E1CCECB3400DB94ED /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B461CCECB3400DB94ED /* Goal.swift */; };
 		18E71B531CCECC3E00DB94ED /* customTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B521CCECC3E00DB94ED /* customTextField.swift */; };
 		18E71B551CCECC9200DB94ED /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B541CCECC9200DB94ED /* MaterialView.swift */; };
 		18E71B571CD4093100DB94ED /* boardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B561CD4093100DB94ED /* boardCell.swift */; };
@@ -26,10 +25,12 @@
 		18E71B5E1CD60EB900DB94ED /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B5D1CD60EB900DB94ED /* Task+CoreDataProperties.swift */; };
 		18E71B601CD60EF600DB94ED /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B5F1CD60EF600DB94ED /* Task.swift */; };
 		18E71B631CD6EB4600DB94ED /* BoardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B621CD6EB4600DB94ED /* BoardDetailsVC.swift */; };
-		18E71B661CD6F29700DB94ED /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B641CD6F29700DB94ED /* Board+CoreDataProperties.swift */; };
+		18E71B6A1CDD11E800DB94ED /* Board+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B681CDD11E800DB94ED /* Board+CoreDataProperties.swift */; };
+		18E71B6D1CDD390700DB94ED /* boardTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E71B6C1CDD390700DB94ED /* boardTBCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1854EF851CDFF3FC00FADB46 /* CustomSegmentCntrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentCntrl.swift; sourceTree = "<group>"; };
 		18E71B271CCEB0B500DB94ED /* MyScrum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyScrum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18E71B2A1CCEB0B500DB94ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18E71B2C1CCEB0B500DB94ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,8 +42,6 @@
 		18E71B3F1CCECB3400DB94ED /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18E71B401CCECB3400DB94ED /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 		18E71B421CCECB3400DB94ED /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		18E71B451CCECB3400DB94ED /* Goal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Goal+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		18E71B461CCECB3400DB94ED /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		18E71B521CCECC3E00DB94ED /* customTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customTextField.swift; sourceTree = "<group>"; };
 		18E71B541CCECC9200DB94ED /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		18E71B561CD4093100DB94ED /* boardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boardCell.swift; sourceTree = "<group>"; };
@@ -51,7 +50,8 @@
 		18E71B5D1CD60EB900DB94ED /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		18E71B5F1CD60EF600DB94ED /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		18E71B621CD6EB4600DB94ED /* BoardDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardDetailsVC.swift; sourceTree = "<group>"; };
-		18E71B641CD6F29700DB94ED /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Board+CoreDataProperties.swift"; path = "../Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18E71B681CDD11E800DB94ED /* Board+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Board+CoreDataProperties.swift"; path = "../Board+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		18E71B6C1CDD390700DB94ED /* boardTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = boardTBCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,6 @@
 				18E71B401CCECB3400DB94ED /* Reminder.swift */,
 				18E71B5F1CD60EF600DB94ED /* Task.swift */,
 				18E71B421CCECB3400DB94ED /* Board.swift */,
-				18E71B461CCECB3400DB94ED /* Goal.swift */,
 				18E71B501CCECB6100DB94ED /* generated */,
 			);
 			name = model;
@@ -114,9 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				18E71B3F1CCECB3400DB94ED /* Reminder+CoreDataProperties.swift */,
+				18E71B681CDD11E800DB94ED /* Board+CoreDataProperties.swift */,
 				18E71B5D1CD60EB900DB94ED /* Task+CoreDataProperties.swift */,
-				18E71B451CCECB3400DB94ED /* Goal+CoreDataProperties.swift */,
-				18E71B641CD6F29700DB94ED /* Board+CoreDataProperties.swift */,
 			);
 			name = generated;
 			sourceTree = "<group>";
@@ -127,6 +125,8 @@
 				18E71B521CCECC3E00DB94ED /* customTextField.swift */,
 				18E71B541CCECC9200DB94ED /* MaterialView.swift */,
 				18E71B561CD4093100DB94ED /* boardCell.swift */,
+				18E71B6C1CDD390700DB94ED /* boardTBCell.swift */,
+				1854EF851CDFF3FC00FADB46 /* CustomSegmentCntrl.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -222,21 +222,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E71B4D1CCECB3400DB94ED /* Goal+CoreDataProperties.swift in Sources */,
+				18E71B6A1CDD11E800DB94ED /* Board+CoreDataProperties.swift in Sources */,
 				18E71B2D1CCEB0B500DB94ED /* ViewController.swift in Sources */,
 				18E71B631CD6EB4600DB94ED /* BoardDetailsVC.swift in Sources */,
 				18E71B2B1CCEB0B500DB94ED /* AppDelegate.swift in Sources */,
 				18E71B551CCECC9200DB94ED /* MaterialView.swift in Sources */,
 				18E71B331CCEB0B500DB94ED /* MyScrum.xcdatamodeld in Sources */,
+				18E71B6D1CDD390700DB94ED /* boardTBCell.swift in Sources */,
 				18E71B571CD4093100DB94ED /* boardCell.swift in Sources */,
 				18E71B4A1CCECB3400DB94ED /* Board.swift in Sources */,
-				18E71B4E1CCECB3400DB94ED /* Goal.swift in Sources */,
 				18E71B471CCECB3400DB94ED /* Reminder+CoreDataProperties.swift in Sources */,
 				18E71B5E1CD60EB900DB94ED /* Task+CoreDataProperties.swift in Sources */,
+				1854EF861CDFF3FC00FADB46 /* CustomSegmentCntrl.swift in Sources */,
 				18E71B531CCECC3E00DB94ED /* customTextField.swift in Sources */,
 				18E71B601CD60EF600DB94ED /* Task.swift in Sources */,
 				18E71B481CCECB3400DB94ED /* Reminder.swift in Sources */,
-				18E71B661CD6F29700DB94ED /* Board+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

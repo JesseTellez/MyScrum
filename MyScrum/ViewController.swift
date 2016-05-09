@@ -9,38 +9,69 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NSFetchedResultsControllerDelegate {
+class ViewController: UIViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var myTableView: UITableView!
     
-    var iip = [NSIndexPath]()
-    var dip = [NSIndexPath]()
-    var ins: NSIndexSet?
-    var des: NSIndexSet?
+    
+    var someGoal: String! = "This is a basic place holder for the current goal I hope this is enough text"
     
     var fetchedResultsCont:NSFetchedResultsController!
-    
-    var currentGoal: Goal!
-    
-    
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        myTableView.delegate = self
+        myTableView.dataSource = self
+        
         attemptFetch()
         
-       // generateTestData()
+        //generateTestData()
     }
     
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(true)
         attemptFetch()
-        collectionView.reloadData()
+        myTableView.reloadData()
     }
+    
+    //Pragma Mark - Generate Test Data
+    
+    func generateTestTasks() {
+        
+        generateTestData()
+        
+    }
+    
+    func generateTestData() {
+        
+        let board = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
+        board.title = "Dancing"
+        board.progress = NSNumber(int: 47)
+        board.currentGoal = someGoal
+        
+        
+        let board2 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
+        board2.title = "Game Developement"
+        board2.progress = NSNumber(int: 89)
+        board2.currentGoal = someGoal
+        
+        let board3 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
+        board3.title = "3D Animation"
+        board3.progress = NSNumber(int: 15)
+        board3.currentGoal =  someGoal
+        
+        let board4 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
+        board4.title = "Programming"
+        board4.progress = NSNumber(int: 29)
+        board4.currentGoal = someGoal
+        
+        appDelegate.saveContext()
+    }
+    
+    //Pragma Mark - CoreData Fetching
     
     
     func attemptFetch()
@@ -72,50 +103,61 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         fetchedResultsCont = controller
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int
+    func configcell(cell: boardTBCell, indexPath: NSIndexPath)
     {
+        
+        if let subject = fetchedResultsCont.objectAtIndexPath(indexPath) as? Board
+        {
+            cell.configTBCell(subject)
+        }
+        
+    }
+    
+    
+    //PRAGMA MARK - TABLEVIEW METHODS
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let sections = fetchedResultsCont.sections
-        {
+        if let sections = fetchedResultsCont.sections {
+            
             let sectionInfo = sections[section]
             return sectionInfo.numberOfObjects
+            
         }
         
         return 0
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 140.0
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if let objects = fetchedResultsCont.fetchedObjects where objects.count > 0 {
+            let boardToPass = objects[indexPath.row] as! Board
+            performSegueWithIdentifier("selectExistingBoard", sender: boardToPass)
+        }
         
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
-    {
-        
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("boardCell", forIndexPath: indexPath) as! boardCell
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = myTableView.dequeueReusableCellWithIdentifier("boardCell", forIndexPath: indexPath) as! boardTBCell
         
         configcell(cell, indexPath: indexPath)
-        
         return cell
         
         
     }
     
-    func configcell(cell: boardCell, indexPath: NSIndexPath)
-    {
-        
-        if let subject = fetchedResultsCont.objectAtIndexPath(indexPath) as? Board
-        {
-            cell.configCell(subject)
-        }
-        
-    }
+    //Pragma Mark - NSFetchController Methods
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        myTableView.beginUpdates()
     }
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
@@ -125,44 +167,36 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 
             case .Insert:
                 if let newIP = newIndexPath {
-                    iip.append(newIP)
+                    myTableView.insertRowsAtIndexPaths([newIP], withRowAnimation: .Fade)
                 }
+                break
             case .Delete:
                 if let normIP = indexPath {
-                    dip.append(normIP)
+                    myTableView.deleteRowsAtIndexPaths([normIP], withRowAnimation: .Fade)
                 }
+                break
             case .Update:
                 if let normIP = indexPath {
-                    self.collectionView!.reloadItemsAtIndexPaths([normIP])
+                    let cell = myTableView.cellForRowAtIndexPath(normIP) as! boardTBCell
+                    configcell(cell, indexPath: normIP)
                 }
-            default:
                 break
+            case .Move:
+                if let normIP = indexPath {
+                    myTableView.deleteRowsAtIndexPaths([normIP], withRowAnimation: .Fade)
+                }
                 
+                if let newIp = newIndexPath {
+                    myTableView.insertRowsAtIndexPaths([newIp], withRowAnimation: .Fade)
+                }
+                break
             }
         }
         
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        
-        self.collectionView!.performBatchUpdates({ 
-            self.collectionView!.insertItemsAtIndexPaths(self.iip)
-            self.collectionView!.deleteItemsAtIndexPaths(self.dip)
-            if self.ins != nil {
-                self.collectionView!.insertSections(self.ins!)
-            }
-            if self.des != nil {
-                self.collectionView!.deleteSections(self.des!)
-                
-            }
-            
-            }, completion:  { completed in
-                
-                self.iip.removeAll(keepCapacity: false)
-                self.dip.removeAll(keepCapacity: false)
-                self.ins = nil
-                self.des = nil
-        })
+        myTableView.endUpdates()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -172,34 +206,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func generateTestTasks() {
-        
-        generateTestData()
-        
-    }
-    
-    func generateTestData() {
-        
-        currentGoal.details = "My Current Goal is to get this working"
-        let board = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
-        board.title = "Dancing"
-        board.progress = NSNumber(int: 47)
-        board.goals = currentGoal
-    
-        
-        let board2 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
-        board2.title = "Game Developement"
-        board2.progress = NSNumber(int: 89)
-        
-        let board3 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
-        board3.title = "3D Animation"
-        board3.progress = NSNumber(int: 15)
-        
-        let board4 = NSEntityDescription.insertNewObjectForEntityForName("Board", inManagedObjectContext: appDelegate.managedObjectContext) as! Board
-        board4.title = "Programming"
-        board3.progress = NSNumber(int: 29)
-        
-    }
 
 }
 

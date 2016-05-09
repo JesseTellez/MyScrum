@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
     <entity name="Board" representedClassName=".Board" syncable="YES">
+        <attribute name="currentGoal" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="currentPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="totalPoints" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="board" inverseEntity="Goal" syncable="YES"/>
         <relationship name="reminders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reminder" inverseName="board" inverseEntity="Reminder" syncable="YES"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="parentBoard" inverseEntity="Task" syncable="YES"/>
-    </entity>
-    <entity name="Goal" representedClassName=".Goal" syncable="YES">
-        <attribute name="acheived" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="board" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Board" inverseName="goals" inverseEntity="Board" syncable="YES"/>
     </entity>
     <entity name="Reminder" representedClassName=".Reminder" syncable="YES">
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,9 +23,8 @@
         <relationship name="parentBoard" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Board" inverseName="tasks" inverseEntity="Board" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Board" positionX="-27" positionY="18" width="128" height="165"/>
-        <element name="Goal" positionX="144" positionY="45" width="128" height="90"/>
-        <element name="Reminder" positionX="135" positionY="36" width="128" height="90"/>
-        <element name="Task" positionX="297" positionY="-12" width="128" height="120"/>
+        <element name="Board" positionX="-27" positionY="18" width="128" height="163"/>
+        <element name="Reminder" positionX="169" positionY="-135" width="128" height="90"/>
+        <element name="Task" positionX="169" positionY="108" width="128" height="120"/>
     </elements>
 </model>
